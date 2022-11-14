@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 <template>
   <div id="app" :class="typeof weather.main != 'undefined' && weather.main.temp < 16 ? 'cool' : ''">
     <main>
@@ -84,7 +86,7 @@ export default {
   }
 
   #app.cool {
-    background-image: url('/images/cool-mountains.webp');
+    background-image: url('/images/cool-mountains.jpg');
     background-size: cover;
     background-position: bottom;
     transition: 0.3s;
