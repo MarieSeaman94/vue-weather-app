@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="typeof weather.main != 'undefined' && weather.main.temp < 16 ? 'cool' : ''">
     <main>
       <div class="search-box">
         <input
@@ -12,14 +12,14 @@
           </div>
 
           <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
-            <div class="location-box">
-              <div class="location"> {{ weather.name}}, {{ weather.sys.country }} </div>
-              <div class="date"> Tuesday 15 November 2022</div>
-            </div>
+          <div class="location-box">
+            <div class="location">{{ weather.name }}, {{ weather.sys.country }}</div>
+            <div class="date">{{ dateBuilder() }}</div>
+        </div>
 
           <div class="weather-box">
-            <div class="temperature"> {{ Math.round(weather.main.temperature) }}°C</div>
-            <div class="weather"> Cloudy </div>
+            <div class="temp">{{ Math.round(weather.main.temp) }}°c</div>
+            <div class="weather">{{ weather.weather[0].main }}</div>
           </div>
         </div>
     </main>
@@ -33,7 +33,7 @@ export default {
   name: 'app',
   data () {
     return {
-      api_key: '5f2e454b64477d02c2ee2c45bf6ccb88',
+      api_key: process.env.VUE_APP_WEATHER_API,
       url_base: 'https://api.openweathermap.org/data/2.5/',
       query: '',
       weather: {}
@@ -83,6 +83,13 @@ export default {
     transition: 0.4s;
   }
 
+  #app.cool {
+    background-image: url('/images/cool-mountains.webp');
+    background-size: cover;
+    background-position: bottom;
+    transition: 0.3s;
+  }
+
   main {
     min-height: 100vh;
     padding: 25px;
@@ -113,7 +120,7 @@ export default {
 
   .search-box .search-bar:focus {
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
-  background-color: #fdf8d5;
+  background-color: #fdfae8;
   border-radius: 16px 0px 16px 0px;
 }
 
@@ -137,7 +144,7 @@ export default {
   text-align: center;
 }
 
-.weather-box .temperature {
+.weather-box .temp {
   display: inline-block;
   padding: 10px 25px;
   color: #FFF;
