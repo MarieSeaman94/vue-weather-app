@@ -7,7 +7,7 @@ require('dotenv').config()
         <input
           type="text"
           class="search-bar"
-          placeholder="Search..."
+          placeholder="City name..."
           v-model="query"
           v-on:keypress="fetchWeather"
           />
