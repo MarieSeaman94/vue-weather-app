@@ -133,7 +133,18 @@ export default {
   font-weight: 500;
   text-align: center;
   text-shadow: 1px 3px rgba(0, 0, 0, 0.25);
+  margin-top: 4rem;
 }
+
+.cool .location-box .location{
+  color: #FFF;
+  font-size: 32px;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 1px 3px rgba(45, 64, 91, .7);
+  margin-top: 4rem;
+}
+
 .location-box .date {
   color: #FFF;
   font-size: 20px;
@@ -144,7 +155,7 @@ export default {
 }
 
 .cool .date{
-  color: rgb(45, 64, 91);
+  color: rgba(45, 64, 91, 1.0);
 }
 
 .weather-box {
