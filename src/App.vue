@@ -142,6 +142,11 @@ export default {
   text-align: center;
   text-shadow: 1px 2px rgb(40, 39, 50, .25);
 }
+
+.cool .date{
+  color: rgb(45, 64, 91);
+}
+
 .weather-box {
   text-align: center;
 }
