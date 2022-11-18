@@ -81,15 +81,15 @@ export default {
   #app {
     background-image: url('/images/mountains.webp');
     background-size: cover;
-    background-position: bottom;
-    transition: 0.4s;
+    background-position: top;
+    transition: 0.2s;
   }
 
   #app.cool {
     background-image: url('/images/cool-mountains.jpg');
     background-size: cover;
     background-position: bottom;
-    transition: 0.3s;
+    transition: 0.2s;
   }
 
   main {
